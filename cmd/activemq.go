@@ -1,6 +1,5 @@
 /*
 Copyright © 2023 NAME HERE <EMAIL ADDRESS>
-
 */
 package cmd
 
@@ -13,13 +12,8 @@ import (
 // activemqCmd represents the activemq command
 var activemqCmd = &cobra.Command{
 	Use:   "activemq",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "检测activemq",
+	Long:  `通过向activemq测试队列发送消息，并接收消息进行状态检测`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("activemq called")
 	},
