@@ -49,5 +49,8 @@ func Printsql() {
 
 		tableData = append(tableData, TableData{Name: tableName, RecordCount: recordCount, Size: size})
 	}
-	fmt.Println(tableData)
+	for k, v := range tableData {
+		fmt.Println(k, v)
+	}
+	//fmt.Println(tableData)
 }
