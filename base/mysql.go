@@ -4,6 +4,7 @@ import (
 	parsglobal "cncy/cfg"
 	"database/sql"
 	"fmt"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 type TableData struct {
@@ -19,9 +20,10 @@ func Printsql() {
 	address := parsglobal.Globalconfig().DatabaseHost
 	port := parsglobal.Globalconfig().DatabasePort
 	fmt.Println(username, password, address, port)
-	db, err := sql.Open("mysql", fmt.Sprintf("%s:%s@tcp(%s:%s)/mdm", username, password, address, port))
+	db, err := sql.Open("mysql", fmt.Sprintf("%s:%s@tcp(%s:%s)/", username, password, address, port))
+	//db, err := sql.Open("mysql", "mdm:Nationsky1@3@tcp(127.0.0.1:3306)/mdm")
 	if err != nil {
-		fmt.Println("连接数据库出错")
+		fmt.Println(err)
 		return
 	}
 
