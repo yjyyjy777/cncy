@@ -5,6 +5,7 @@ import (
 	"database/sql"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
+	"sort"
 )
 
 type TableData struct {
@@ -49,8 +50,14 @@ func Printsql() {
 
 		tableData = append(tableData, TableData{Name: tableName, RecordCount: recordCount, Size: size})
 	}
+	sort.Slice(tableData, func(i, j int) bool {
+		if tableData[i].RecordCount < tableData[j].RecordCount {
+			return true
+		}
+		return false
+	})
 	for k, v := range tableData {
 		fmt.Println(k, v)
 	}
-	//fmt.Println(tableData)
+
 }
